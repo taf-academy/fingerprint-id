@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Vibration } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Vibration, CameraRoll } from 'react-native';
 import { Camera, Permissions, FileSystem, } from 'expo';
 
 const landmarkSize = 2;
@@ -21,9 +21,10 @@ export default class CameraExample extends React.Component {
   takePicture = async function() {
     if (this.camera) {
       this.camera.takePictureAsync().then(data => {
+        CameraRoll.saveToCameraRoll(data.uri);
         FileSystem.copyAsync({
           from: data.uri,
-          to: `${FileSystem.documentDirectory}photos/Photo_${this.state.photoId}.jpg`,
+          to: `${FileSystem.documentDirectory}/Photo_${this.state.photoId}.jpg`,
         }).then(() => {
           this.setState({
             photoId: this.state.photoId + 1,
