@@ -21,16 +21,15 @@ See also [this expo page](https://expo.io/learn) which explains how to install t
 % git clone https://github.com/taf-academy/fingerprint-id.git
 ```
 
-### Run npm install in the repo dir:
+### Run npm install in the app dir:
 ```
-% cd fingerprint-id
+% cd fingerprint-id/app
 % npm install
 ```
 
-### Start expo in the app dir
+### Start expo 
 
 ```
-% cd app
 % exp start
 ```
 
